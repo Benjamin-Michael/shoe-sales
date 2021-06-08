@@ -2,16 +2,12 @@ package za.ac.cput.Entity;
 
 public class Shoe {
 
-    private String shoeId, brand, colour;
-    private int size;
-    private double price;
+    private String shoeId, brand, modelId;
 
     private Shoe(Builder builder){
         this.shoeId = builder.shoeId;
         this.brand = builder.brand;
-        this.colour = builder.colour;
-        this.size = builder.size;
-        this.price = builder.price;
+        this.modelId = builder.modelId;
 
     }
 
@@ -20,17 +16,13 @@ public class Shoe {
         return "Shoe{" +
                 "shoeId='" + shoeId + '\'' +
                 ", brand='" + brand + '\'' +
-                ", colour='" + colour + '\'' +
-                ", size=" + size +
-                ", price=" + price +
+                ", modelId='" + modelId +
                 '}';
     }
 
     public static class Builder{
 
-        private String shoeId, brand, colour;
-        private int size;
-        private double price;
+        private String shoeId, brand, modelId;
 
         public Builder setShoeId(String shoeId) {
             this.shoeId = shoeId;
@@ -42,18 +34,8 @@ public class Shoe {
             return this;
         }
 
-        public Builder setColour(String colour) {
-            this.colour = colour;
-            return this;
-        }
-
-        public Builder setSize(int size) {
-            this.size = size;
-            return this;
-        }
-
-        public Builder setPrice(double price) {
-            this.price = price;
+        public Builder setModelId(String modelId) {
+            this.modelId = modelId;
             return this;
         }
 
@@ -64,9 +46,7 @@ public class Shoe {
         public Builder copy(Shoe shoe){
             this.shoeId = shoe.shoeId;
             this.brand = shoe.brand;
-            this.colour = shoe.colour;
-            this.size = shoe.size;
-            this.price = shoe.price;
+            this.modelId = shoe.modelId;
 
             return this;
 
