@@ -1,6 +1,6 @@
 package za.ac.cput.Entity;
 /*StaffRole.java
-  Entity for staff role class
+  Entity for staffrole class
   Author: Phindiwe Bambata (217180833)
   Date: 08/06/2021
  */
@@ -26,16 +26,19 @@ public class StaffRole {
 
     public static class Builder{
         private String roleId, staffRole, roleDescription;
-        public void setRoleId(String roleId) {
+        public Builder setRoleId(String roleId) {
             this.roleId = roleId;
+            return this;
         }
 
-        public void setStaffRole(String staffRole) {
+        public Builder setStaffRole(String staffRole) {
             this.staffRole = staffRole;
+            return this;
         }
 
-        public void setRoleDescription(String roleDescription) {
+        public Builder setRoleDescription(String roleDescription) {
             this.roleDescription = roleDescription;
+            return this;
         }
 
 
