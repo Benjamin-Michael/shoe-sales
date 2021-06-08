@@ -1,5 +1,9 @@
 package za.ac.cput.Entity;
-
+/*StaffRole.java
+  Entity for staff role class
+  Author: Phindiwe Bambata (217180833)
+  Date: 08/06/2021
+ */
 public class StaffRole {
     private String staffId,roleId, staffRole, roleDescription;
 
