@@ -1,4 +1,9 @@
 package za.ac.cput.Entity;
+/*ModelLocation.java
+  Entity for ModelLocation class
+  Author: Lonwabo Alvin (217213685)
+  Date: 09/06/2021
+ */
 
 public class ModelLocation {
     private String modelId, locationId, quantity;
