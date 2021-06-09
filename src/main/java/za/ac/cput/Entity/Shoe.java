@@ -1,3 +1,9 @@
+/*  Shoe.java
+    Entity for the Shoe
+    Author: Michael Benjamin (219071438)
+    Date: 08 June 2021
+ */
+
 package za.ac.cput.Entity;
 
 public class Shoe {
