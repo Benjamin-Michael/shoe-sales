@@ -23,7 +23,7 @@ public class Shoe {
                 "shoeId='" + shoeId + '\'' +
                 ", brand='" + brand + '\'' +
                 ", modelId='" + modelId +
-                '}';
+                "'}";
     }
 
     public static class Builder{
