@@ -1,3 +1,7 @@
+/*
+    Author: Faidh Adams 215060148
+    Date: 11 June 2021
+ */
 package za.ac.cput.Entity;
 
 public class SaleItem {
@@ -13,9 +17,9 @@ public class SaleItem {
     @Override
     public String toString(){
         return "SaleItem{" +
-                "saleItemId: '" + saleItemId + "\'" +
-                "shoeId: '" + shoeId + "\'" +
-                "saleId: '" + saleId +
+                "saleItemId: " + saleItemId + "," +
+                "shoeId: " + shoeId + "," +
+                "saleId: " + saleId +
                 "}";
     }
 
