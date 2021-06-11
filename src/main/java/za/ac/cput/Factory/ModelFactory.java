@@ -1,4 +1,11 @@
+/*ModelFactory.java
+  Factory for Model class
+  Author: Lonwabo Alvin (217213685)
+  Date: 09/06/2021
+ */
+
 package za.ac.cput.Factory;
+
 
 import za.ac.cput.Entity.Model;
 import za.ac.cput.Util.GenericHelper;
