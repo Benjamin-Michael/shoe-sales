@@ -1,3 +1,9 @@
+/*  ShoeSizeFactory.java
+    ShoeSizeFactory
+    Author: Michael Benjamin (219071438)
+    Date: 11 June 2021
+ */
+
 package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.ShoeSize;
