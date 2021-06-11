@@ -8,10 +8,11 @@ package za.ac.cput.Entity;
 
 public class ShoeType {
 
-    private String colour;
+    private String shoeTypeId, colour;
     private double price;
 
     private ShoeType(ShoeType.Builder builder){
+        this.shoeTypeId = builder.shoeTypeId;
         this.colour = builder.colour;
         this.price = builder.price;
 
@@ -20,15 +21,21 @@ public class ShoeType {
     @Override
     public String toString() {
         return "ShoeType{" +
-                "colour='" + colour + '\'' +
+                "shoeTypeId='" + shoeTypeId + '\'' +
+                ", colour='" + colour + '\'' +
                 ", price=" + price +
                 '}';
     }
 
     public static class Builder{
 
-        private String colour;
+        private String shoeTypeId, colour;
         private double price;
+
+        public ShoeType.Builder setShoeTypeId(String shoeTypeId) {
+            this.shoeTypeId = shoeTypeId;
+            return this;
+        }
 
         public ShoeType.Builder setColour(String colour) {
             this.colour = colour;
@@ -45,6 +52,7 @@ public class ShoeType {
         }
 
         public ShoeType.Builder copy(ShoeType shoeType){
+            this.shoeTypeId = shoeType.shoeTypeId;
             this.colour = shoeType.colour;
             this.price = shoeType.price;
 

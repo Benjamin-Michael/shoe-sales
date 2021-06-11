@@ -7,9 +7,10 @@ public class ShoeTypeFactory {
 
     public static ShoeType createShoeType(String colour, double price){
 
-        String shoeId = GenericHelper.generateId();
+        String shoeTypeId = GenericHelper.generateId();
 
         ShoeType shoeType = new ShoeType.Builder()
+                .setShoeTypeId(shoeTypeId)
                 .setColour(colour)
                 .setPrice(price)
                 .build();

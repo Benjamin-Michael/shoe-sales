@@ -8,26 +8,43 @@ package za.ac.cput.Entity;
 
 public class ShoeSize {
 
+    private String shoeSizeId;
+    private boolean adultSize;
     private int size;
 
     private ShoeSize(ShoeSize.Builder builder){
+        this.shoeSizeId = builder.shoeSizeId;
         this.size = builder.size;
+        this.adultSize = builder.adultSize;
 
     }
 
     @Override
     public String toString() {
         return "ShoeSize{" +
-                "size=" + size +
+                "shoeSizeId='" + shoeSizeId + '\'' +
+                ", adultSize=" + adultSize +
+                ", size=" + size +
                 '}';
     }
 
     public static class Builder{
 
+        private String shoeSizeId;
+        private boolean adultSize;
         private int size;
 
+        public ShoeSize.Builder setSizeId(String shoeSizeId) {
+            this.shoeSizeId = shoeSizeId;
+            return this;
+        }
         public ShoeSize.Builder setSize(int size) {
             this.size = size;
+            return this;
+        }
+
+        public ShoeSize.Builder isAdultSize(boolean adultSize) {
+            this.adultSize = adultSize;
             return this;
         }
 
@@ -37,6 +54,8 @@ public class ShoeSize {
 
         public ShoeSize.Builder copy(ShoeSize shoeSize){
             this.size = shoeSize.size;
+            this.size = shoeSize.size;
+            this.adultSize = shoeSize.adultSize;
 
             return this;
 

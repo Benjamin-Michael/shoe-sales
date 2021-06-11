@@ -39,7 +39,7 @@ class ShoeTypeFactoryTest {
     }
 
     @Test
-    @Timeout(value = 20, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     void testObject(){
         shoeType2 = shoeType1;
         System.out.println(shoeType2);

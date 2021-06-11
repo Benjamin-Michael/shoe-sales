@@ -8,12 +8,14 @@ package za.ac.cput.Entity;
 
 public class Shoe {
 
-    private String shoeId, brand, modelId;
+    private String shoeId, brand, modelId, shoeTypeId, shoeSizeId;
 
     private Shoe(Builder builder){
         this.shoeId = builder.shoeId;
         this.brand = builder.brand;
         this.modelId = builder.modelId;
+        this.shoeTypeId = builder.shoeTypeId;
+        this.shoeSizeId = builder.shoeSizeId;
 
     }
 
@@ -22,13 +24,15 @@ public class Shoe {
         return "Shoe{" +
                 "shoeId='" + shoeId + '\'' +
                 ", brand='" + brand + '\'' +
-                ", modelId='" + modelId +
-                "'}";
+                ", modelId='" + modelId + '\'' +
+                ", shoeTypeId='" + shoeTypeId + '\'' +
+                ", shoeSizeId='" + shoeSizeId + '\'' +
+                '}';
     }
 
     public static class Builder{
 
-        private String shoeId, brand, modelId;
+        private String shoeId, brand, modelId, shoeTypeId, shoeSizeId;
 
         public Builder setShoeId(String shoeId) {
             this.shoeId = shoeId;
@@ -45,6 +49,16 @@ public class Shoe {
             return this;
         }
 
+        public Builder setShoeTypeId(String shoeTypeId) {
+            this.shoeTypeId = shoeTypeId;
+            return this;
+        }
+
+        public Builder setShoeSizeId(String shoeSizeId) {
+            this.shoeSizeId = shoeSizeId;
+            return this;
+        }
+
         public Shoe build(){
             return new Shoe(this);
         }
@@ -53,6 +67,8 @@ public class Shoe {
             this.shoeId = shoe.shoeId;
             this.brand = shoe.brand;
             this.modelId = shoe.modelId;
+            this.shoeTypeId = shoe.shoeTypeId;
+            this.shoeSizeId = shoe.shoeSizeId;
 
             return this;
 

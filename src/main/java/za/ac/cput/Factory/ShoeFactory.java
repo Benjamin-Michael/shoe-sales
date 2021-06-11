@@ -11,7 +11,7 @@ import za.ac.cput.Util.GenericHelper;
 
 public class ShoeFactory {
 
-    public static Shoe createShoe(String brand, String modelId){
+    public static Shoe createShoe(String brand, String modelId, String shoeTypeId, String shoeSizeId){
 
         String shoeId = GenericHelper.generateId();
 
@@ -19,6 +19,8 @@ public class ShoeFactory {
                 .setShoeId(shoeId)
                 .setBrand(brand)
                 .setModelId(modelId)
+                .setShoeTypeId(shoeTypeId)
+                .setShoeSizeId(shoeSizeId)
                 .build();
 
         return shoe;

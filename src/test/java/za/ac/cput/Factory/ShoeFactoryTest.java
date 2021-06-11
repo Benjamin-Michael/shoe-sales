@@ -22,13 +22,13 @@ class ShoeFactoryTest {
 
     @BeforeEach
     void setUp(){
-        shoe1 = ShoeFactory.createShoe("Puma", GenericHelper.generateId());
+        shoe1 = ShoeFactory.createShoe("Puma", GenericHelper.generateId(), GenericHelper.generateId(), GenericHelper.generateId());
         shoe2 = null;
     }
 
     @Test
     void testShoeCreation() {
-        shoe2 = ShoeFactory.createShoe("Nike", GenericHelper.generateId());
+        shoe2 = ShoeFactory.createShoe("Nike", GenericHelper.generateId(), GenericHelper.generateId(), GenericHelper.generateId());
         System.out.println(shoe2);
 
         assertNotNull(shoe2);
@@ -37,14 +37,14 @@ class ShoeFactoryTest {
     @Disabled
     @Test
     void testShoe1Creation(){
-        shoe1 = ShoeFactory.createShoe("Puma", GenericHelper.generateId());
+        shoe1 = ShoeFactory.createShoe("Puma", GenericHelper.generateId(), GenericHelper.generateId(), GenericHelper.generateId());
         System.out.println(shoe1);
 
         assertNotNull(shoe1);
     }
 
     @Test
-    @Timeout(value = 10, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     void testObject(){
         shoe2 = shoe1;
         System.out.println(shoe2);

@@ -16,13 +16,13 @@ class ShoeSizeFactoryTest {
 
     @BeforeEach
     void setUp() {
-        shoeSize1 = ShoeSizeFactory.createShoeSize(7);
+        shoeSize1 = ShoeSizeFactory.createShoeSize(7, true);
         shoeSize2 = null;
     }
 
     @Test
     void testShoeTypeCreation() {
-        shoeSize2 = ShoeSizeFactory.createShoeSize(6);
+        shoeSize2 = ShoeSizeFactory.createShoeSize(6, true);
         System.out.println(shoeSize2);
 
         assertNotNull(shoeSize2);
@@ -31,14 +31,14 @@ class ShoeSizeFactoryTest {
     @Disabled
     @Test
     void testShoeSize1Creation(){
-        shoeSize1 = ShoeSizeFactory.createShoeSize(4);
+        shoeSize1 = ShoeSizeFactory.createShoeSize(4, false);
         System.out.println(shoeSize1);
 
         assertNotNull(shoeSize1);
     }
 
     @Test
-    @Timeout(value = 20, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     void testObject(){
         shoeSize2 = shoeSize1;
         System.out.println(shoeSize2);

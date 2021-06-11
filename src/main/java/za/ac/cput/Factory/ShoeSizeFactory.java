@@ -5,11 +5,13 @@ import za.ac.cput.Util.GenericHelper;
 
 public class ShoeSizeFactory {
 
-    public static ShoeSize createShoeSize(int size){
+    public static ShoeSize createShoeSize(int size, boolean adultSize){
 
-        String shoeId = GenericHelper.generateId();
+        String shoeSizeId = GenericHelper.generateId();
 
         ShoeSize shoeSize = new ShoeSize.Builder()
+                .setSizeId(shoeSizeId)
+                .isAdultSize(adultSize)
                 .setSize(size)
                 .build();
 
