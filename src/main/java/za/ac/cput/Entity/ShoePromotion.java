@@ -8,10 +8,12 @@ package za.ac.cput.Entity;
 
 public class ShoePromotion {
 
-    private int shoeId;
-    private int promotionId;
+    private String shoeId;
+    private String promotionId;
     private String startDate;
     private String endDate;
+
+
 
     private ShoePromotion(Builder builder)
     {
@@ -23,18 +25,18 @@ public class ShoePromotion {
 
    public static class Builder{
 
-       private int shoeId;
-       private int promotionId;
+       private String shoeId;
+       private String promotionId;
        private String startDate;
        private String endDate;
        
-       public Builder setShoeId(int shoeId)
+       public Builder setShoeId(String shoeId)
        {
            this.shoeId = shoeId;
            return this;
        }
        
-       public Builder setPromotion(int promotionId)
+       public Builder setPromotion(String promotionId)
        {
            this.promotionId = promotionId;
            return this;
@@ -71,10 +73,10 @@ public class ShoePromotion {
     @Override
     public String toString() {
         return "ShoePromotion{" +
-                "shoeId=" + shoeId +
-                ", promotionId=" + promotionId +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
+                "shoeId = " + shoeId +
+                ", promotionId = " + promotionId +
+                ", startDate =' " + startDate + '\'' +
+                ", endDate =' " + endDate + '\'' +
                 '}';
     }
 }
