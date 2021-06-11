@@ -8,9 +8,9 @@ package za.ac.cput.Entity;
 
 public class Promotion {
 
-    private int promotionId;
+    private String promotionId;
     private String description;
-    private double discountPercentage;
+    private String discountPercentage;
 
     private Promotion(Builder builder)
     {
@@ -22,19 +22,19 @@ public class Promotion {
     @Override
     public String toString() {
         return "Promotion{" +
-                "promotionId=" + promotionId +
-                ", description='" + description + '\'' +
-                ", discountPercentage=" + discountPercentage +
+                "promotionId = " + promotionId +
+                ", description =' " + description + '\'' +
+                ", discountPercentage = " + discountPercentage + "%" +
                 '}';
     }
 
     public static class Builder{
 
-        private int promotionId;
+        private String promotionId;
         private String description;
-        private double discountPercentage;
+        private String discountPercentage;
 
-        public Builder setPromotionId(int promotionId)
+        public Builder setPromotionId(String promotionId)
         {
             this.promotionId = promotionId;
             return this;
@@ -46,9 +46,10 @@ public class Promotion {
             return this;
         }
 
-        public Builder setDiscountPercentage(double discountPercentage)
+        public Builder setDiscountPercentage(String discountPercentage)
         {
             this.discountPercentage = discountPercentage;
+
             return this;
         }
 
