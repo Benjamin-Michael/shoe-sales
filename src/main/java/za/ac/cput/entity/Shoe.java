@@ -7,6 +7,25 @@
 package za.ac.cput.entity;
 
 public class Shoe {
+    public String getShoeId() {
+        return shoeId;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModelId() {
+        return modelId;
+    }
+
+    public String getShoeTypeId() {
+        return shoeTypeId;
+    }
+
+    public String getShoeSizeId() {
+        return shoeSizeId;
+    }
 
     private String shoeId, brand, modelId, shoeTypeId, shoeSizeId;
 
