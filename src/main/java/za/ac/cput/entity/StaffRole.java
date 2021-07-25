@@ -24,6 +24,22 @@ public class StaffRole {
                 '}';
     }
 
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public String getStaffRole() {
+        return staffRole;
+    }
+
+    public String getRoleDescription() {
+        return roleDescription;
+    }
+
     public static class Builder{
         private String roleId, staffRole, roleDescription;
         public Builder setRoleId(String roleId) {

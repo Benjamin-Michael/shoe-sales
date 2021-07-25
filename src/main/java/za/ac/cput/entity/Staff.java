@@ -27,6 +27,22 @@ public class Staff {
                 '}';
     }
 
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public static class Builder{
 
 

@@ -24,8 +24,8 @@ public class ShoeRepository implements IRepository <Shoe, String> {
     public Shoe read(String shoeId) {
         Shoe shoe = null;
 
-        for(Shoe s: this.shoeList){
-            if(s.getShoeId().equalsIgnoreCase(shoeId)){
+        for (Shoe s : this.shoeList) {
+            if (s.getShoeId().equalsIgnoreCase(shoeId)) {
                 shoe = s;
                 break;
             }
@@ -38,7 +38,7 @@ public class ShoeRepository implements IRepository <Shoe, String> {
     public Shoe update(Shoe shoe) {
         Shoe preUpdate = read(shoe.getShoeId());
 
-        if(preUpdate != null){
+        if (preUpdate != null) {
             this.shoeList.remove(preUpdate);
             this.shoeList.add(shoe);
         }
@@ -47,11 +47,12 @@ public class ShoeRepository implements IRepository <Shoe, String> {
     }
 
     @Override
-    public void delete(String shoeId) {
+    public boolean delete(String shoeId) {
         Shoe shoe = read(shoeId);
 
-        if(shoe != null)
+        if (shoe != null)
             this.shoeList.remove(shoe);
-
+          return true;
     }
 }
+
