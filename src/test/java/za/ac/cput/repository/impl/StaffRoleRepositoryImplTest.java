@@ -35,7 +35,7 @@ class StaffRoleRepositoryImplTest {
         StaffRole updated = new StaffRole.Builder().copy(staffRole).setStaffRole("Technician").build();
         staffRoleRepositoryImpl.update(updated);
         System.out.println("Updated (" + updated.getRoleId() + "): " + updated.getStaffRole()
-                + " = Staff: (" + staffRole.getRoleId() + "): " + staffRole.getRoleId());
+                + " = StaffRole: (" + staffRole.getRoleId() + "): " + staffRole.getStaffRole());
     }
 
     @Test
