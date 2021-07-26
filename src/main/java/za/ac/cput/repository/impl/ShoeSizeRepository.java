@@ -1,30 +1,61 @@
 package za.ac.cput.repository.impl;
 
+import za.ac.cput.entity.ShoeSize;
+
+import java.util.HashSet;
 import java.util.Set;
 
 public class ShoeSizeRepository implements IShoeSizeRepository {
-    @Override
-    public za.ac.cput.entity.ShoeSize create(za.ac.cput.entity.ShoeSize shoeSize) {
-        return null;
+
+    private Set<ShoeSize> shoeSizeDB = null;
+
+    public ShoeSizeRepository() {
+        shoeSizeDB = new HashSet<ShoeSize>();
     }
 
     @Override
-    public za.ac.cput.entity.ShoeSize read(String s) {
-        return null;
+    public ShoeSize create(ShoeSize shoeSize) {
+        this.shoeSizeDB.add(shoeSize);
+        return shoeSize;
     }
 
     @Override
-    public za.ac.cput.entity.ShoeSize update(za.ac.cput.entity.ShoeSize shoeSize) {
-        return null;
+    public ShoeSize read(String shoeSizeId) {
+        ShoeSize shoeSize = null;
+
+        for (ShoeSize s : this.shoeSizeDB) {
+            if (s.getShoeSizeId().equalsIgnoreCase(shoeSizeId)) {
+                shoeSize = s;
+                break;
+            }
+        }
+
+        return shoeSize;
     }
 
     @Override
-    public boolean delete(String s) {
-        return false;
+    public ShoeSize update(ShoeSize shoeSize) {
+        ShoeSize preUpdate = read(shoeSize.getShoeSizeId());
+
+        if (preUpdate != null) {
+            this.shoeSizeDB.remove(preUpdate);
+            this.shoeSizeDB.add(shoeSize);
+        }
+
+        return shoeSize;
     }
 
     @Override
-    public Set<za.ac.cput.entity.ShoeSize> getAll() {
-        return null;
+    public boolean delete(String shoeSizeId) {
+        ShoeSize shoeSize = read(shoeSizeId);
+
+        if (shoeSize != null)
+            this.shoeSizeDB.remove(shoeSize);
+        return true;
+    }
+
+    @Override
+    public Set<ShoeSize> getAll() {
+        return shoeSizeDB;
     }
 }
