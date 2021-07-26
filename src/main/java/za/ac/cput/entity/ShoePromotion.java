@@ -13,7 +13,21 @@ public class ShoePromotion {
     private String startDate;
     private String endDate;
 
+    public String getShoeId() {
+        return shoeId;
+    }
 
+    public String getPromotionId() {
+        return promotionId;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
 
     private ShoePromotion(Builder builder)
     {

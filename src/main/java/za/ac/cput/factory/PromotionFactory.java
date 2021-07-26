@@ -11,10 +11,8 @@ import za.ac.cput.util.GenericHelper;
 
 public class PromotionFactory {
 
-    public static Promotion newPromotion(String description, String percentage)
+    public static Promotion newPromotion(String promotionId, String description, Double percentage)
     {
-
-        String promotionId = GenericHelper.generateId();
 
         Promotion promotion = new Promotion.Builder().setPromotionId(promotionId).setDescription(description).setDiscountPercentage(percentage).build();
 

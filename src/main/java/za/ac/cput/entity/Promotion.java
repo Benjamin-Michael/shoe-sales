@@ -10,7 +10,7 @@ public class Promotion {
 
     private String promotionId;
     private String description;
-    private String discountPercentage;
+    private Double discountPercentage;
 
     private Promotion(Builder builder)
     {
@@ -32,7 +32,7 @@ public class Promotion {
 
         private String promotionId;
         private String description;
-        private String discountPercentage;
+        private Double discountPercentage;
 
         public Builder setPromotionId(String promotionId)
         {
@@ -46,7 +46,7 @@ public class Promotion {
             return this;
         }
 
-        public Builder setDiscountPercentage(String discountPercentage)
+        public Builder setDiscountPercentage(Double discountPercentage)
         {
             this.discountPercentage = discountPercentage;
 
@@ -60,12 +60,22 @@ public class Promotion {
 
         public Builder copy(Promotion promotion)
         {
-            this.promotionId = promotionId;
-            this.description = description;
-            this.discountPercentage = discountPercentage;
+            this.promotionId = promotion.promotionId;
+            this.description = promotion.description;
+            this.discountPercentage = promotion.discountPercentage;
             return this;
         }
     }
 
+    public String getPromotionId() {
+        return promotionId;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public Double getDiscountPercentage() {
+        return discountPercentage;
+    }
 }
