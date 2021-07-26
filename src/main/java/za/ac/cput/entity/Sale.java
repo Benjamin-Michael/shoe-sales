@@ -25,6 +25,10 @@ public class Sale {
                 "}";
     }
 
+    public String getSaleId() {
+        return saleId;
+    }
+
     public static class Builder{
         private String saleId, staffId, saleTotal, saleDate;
 

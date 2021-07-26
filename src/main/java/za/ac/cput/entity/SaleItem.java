@@ -23,6 +23,14 @@ public class SaleItem {
                 "}";
     }
 
+    public String getSaleItemId() {
+        return saleItemId;
+    }
+
+    public String getShoeId() {
+        return shoeId;
+    }
+
     public static class Builder{
         private String saleItemId, shoeId, saleId;
 
