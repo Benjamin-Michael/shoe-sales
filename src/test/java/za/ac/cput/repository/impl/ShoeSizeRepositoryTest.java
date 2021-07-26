@@ -1,52 +1,57 @@
 package za.ac.cput.repository.impl;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.entity.Shoe;
 import za.ac.cput.entity.ShoeSize;
+import za.ac.cput.factory.ShoeFactory;
 import za.ac.cput.factory.ShoeSizeFactory;
+import za.ac.cput.util.GenericHelper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class ShoeSizeRepositoryTest {
 
-    private static ShoeSizeRepository shoeSizeRepository;
-    private ShoeSize shoeSize;
-
-    @BeforeEach
-    void setUp() {
-        shoeSizeRepository = new ShoeSizeRepository();
-        shoeSize = ShoeSizeFactory.createShoeSize(7, true);
-    }
+    private static ShoeSizeRepository shoeSizeRepository = ShoeSizeRepository.getRepository();
+    private static ShoeSize shoeSize = ShoeSizeFactory.createShoeSize(7, true);
 
     @Test
-    void create() {
+    void a_create() {
         ShoeSize created = shoeSizeRepository.create(shoeSize);
         assertEquals(created.getShoeSizeId(), shoeSize.getShoeSizeId());
-        System.out.println("Created: " + created.getShoeSizeId() + " = ShoeSize: " + shoeSize.getShoeSizeId());
+        System.out.println("Created: " + created.getShoeSizeId() + "\nShoeSize: " + shoeSize.getShoeSizeId() + "\n");
     }
 
     @Test
-    void read() {
+    void b_read() {
+        //a_create();
         ShoeSize read = shoeSizeRepository.read(shoeSize.getShoeSizeId());
-        System.out.println("ShoeSize Read: " + read);
+        assertNotNull(read);
+        System.out.println("ShoeSize Read: " + read + "\n");
     }
 
     @Test
-    void update() {
-        ShoeSize updated = new ShoeSize.Builder().copy(shoeSize).setSize(6).build();
-        shoeSizeRepository.update(updated);
+    void c_update() {
+        ShoeSize updated = new ShoeSize.Builder().copy(shoeSize).setSize(8).build();
+        assertNotNull(shoeSizeRepository.update(updated));
         System.out.println("Updated (" + updated.getShoeSizeId() + "): " + updated.getSize()
-                + " = ShoeSize: (" + shoeSize.getShoeSizeId() + "): " + shoeSize.getSize());
+                + " = ShoeSize: (" + shoeSize.getShoeSizeId() + "): " + shoeSize.getSize() + "\n");
     }
 
     @Test
-    void delete() {
-        shoeSizeRepository.delete(shoeSize.getShoeSizeId());
-        System.out.println("Deleted: " + shoeSize.getShoeSizeId());
+    void e_delete() {
+        boolean deleted = shoeSizeRepository.delete(shoeSize.getShoeSizeId());
+        assertTrue(deleted);
+        System.out.println("Deleted: " + deleted);
+        d_getAll();
     }
 
     @Test
-    void getAll() {
+    void d_getAll() {
+        System.out.println(shoeSizeRepository.getAll() + "\n");
     }
 
 }

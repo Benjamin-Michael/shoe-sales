@@ -7,30 +7,37 @@ import java.util.Set;
 
 public class ShoeRepository implements IShoeRepository {
 
+    private static ShoeRepository repository = null;
     private Set<Shoe> shoeDB = null;
 
-    public ShoeRepository() {
+    private ShoeRepository() {
         shoeDB = new HashSet<Shoe>();
+    }
+
+    public static ShoeRepository getRepository(){
+        if(repository == null)
+            repository = new ShoeRepository();
+        return repository;
     }
 
     @Override
     public Shoe create(Shoe shoe) {
-        this.shoeDB.add(shoe);
+        boolean success = this.shoeDB.add(shoe);
+        if(!success)
+            return null;
+
         return shoe;
     }
 
     @Override
     public Shoe read(String shoeId) {
-        Shoe shoe = null;
 
-        for (Shoe s : this.shoeDB) {
-            if (s.getShoeId().equalsIgnoreCase(shoeId)) {
-                shoe = s;
-                break;
-            }
+        for (Shoe shoe : this.shoeDB) {
+            if (shoe.getShoeId().equalsIgnoreCase(shoeId))
+                return shoe;
         }
 
-        return shoe;
+        return null;
     }
 
     @Override
@@ -40,18 +47,21 @@ public class ShoeRepository implements IShoeRepository {
         if (preUpdate != null) {
             this.shoeDB.remove(preUpdate);
             this.shoeDB.add(shoe);
+            return shoe;
         }
 
-        return shoe;
+        return null;
     }
 
     @Override
     public boolean delete(String shoeId) {
-        Shoe shoe = read(shoeId);
+        Shoe shoeToDelete = read(shoeId);
 
-        if (shoe != null)
-            this.shoeDB.remove(shoe);
-          return true;
+        if (shoeToDelete != null) {
+            this.shoeDB.remove(shoeToDelete);
+            return true;
+        }
+        return false;
     }
 
     @Override

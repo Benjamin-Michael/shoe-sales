@@ -1,5 +1,6 @@
 package za.ac.cput.repository.impl;
 
+import za.ac.cput.entity.ShoeSize;
 import za.ac.cput.entity.ShoeType;
 
 import java.util.HashSet;
@@ -7,30 +8,36 @@ import java.util.Set;
 
 public class ShoeTypeRepository implements IShoeTypeRepository{
 
+    private static  ShoeTypeRepository repository = null;
     private Set<ShoeType> shoeTypeDB = null;
 
-    public ShoeTypeRepository() {
+    private ShoeTypeRepository() {
         shoeTypeDB = new HashSet<ShoeType>();
+    }
+
+    public static ShoeTypeRepository getRepository(){
+        if(repository == null)
+            repository = new ShoeTypeRepository();
+        return repository;
     }
 
     @Override
     public ShoeType create(ShoeType shoeType) {
-        this.shoeTypeDB.add(shoeType);
+        boolean success = this.shoeTypeDB.add(shoeType);
+        if(!success)
+            return null;
+
         return shoeType;
     }
 
     @Override
     public ShoeType read(String shoeTypeId) {
-        ShoeType shoeType = null;
-
-        for (ShoeType s : this.shoeTypeDB) {
-            if (s.getShoeTypeId().equalsIgnoreCase(shoeTypeId)) {
-                shoeType = s;
-                break;
-            }
+        for (ShoeType shoeType : this.shoeTypeDB) {
+            if (shoeType.getShoeTypeId().equalsIgnoreCase(shoeTypeId))
+                return shoeType;
         }
 
-        return shoeType;
+        return null;
     }
 
     @Override
@@ -40,18 +47,21 @@ public class ShoeTypeRepository implements IShoeTypeRepository{
         if (preUpdate != null) {
             this.shoeTypeDB.remove(preUpdate);
             this.shoeTypeDB.add(shoeType);
+            return shoeType;
         }
 
-        return shoeType;
+        return null;
     }
 
     @Override
     public boolean delete(String shoeTypeId) {
-        ShoeType shoeType = read(shoeTypeId);
+        ShoeType shoeTypeToDelete = read(shoeTypeId);
 
-        if (shoeType != null)
-            this.shoeTypeDB.remove(shoeType);
-        return true;
+        if (shoeTypeToDelete != null) {
+            this.shoeTypeDB.remove(shoeTypeToDelete);
+            return true;
+        }
+        return false;
     }
 
     @Override
