@@ -20,8 +20,8 @@ class PromotionFactoryTest {
 
     @BeforeEach
     public void setUp() {
-        promo1 = PromotionFactory.newPromotion("Get 50% off now on Vans Footwear.", "50");
-        promo2 = PromotionFactory.newPromotion("Get 25% off now on Nike Sneakers.", "25");
+        promo1 = PromotionFactory.newPromotion("PM1", "Get 50% off now on Vans Footwear.", 0.50);
+        promo2 = PromotionFactory.newPromotion("PM1", "Get 25% off now on Nike Footwear.", 0.30);
         promo3 = promo1;
         promo4 = promo2;
 

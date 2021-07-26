@@ -21,8 +21,8 @@ class ShoePromotionFactoryTest {
     @BeforeEach
     void setUp()
     {
-        shoePromo1 = ShoePromotionFactory.newShoePromotion("0001", "01 June 2021", "31 June 2021" );
-        shoePromo2 = ShoePromotionFactory.newShoePromotion("0002", "15 June 2021", "30 June 2021" );
+        shoePromo1 = ShoePromotionFactory.newShoePromotion("0001", "135VNS","01 June 2021", "31 June 2021" );
+        shoePromo2 = ShoePromotionFactory.newShoePromotion("0002", "246NKS","01 June 2021", "30 June 2021" );
         shoePromo3 = shoePromo1;
         shoePromo4 = shoePromo2;
     }
