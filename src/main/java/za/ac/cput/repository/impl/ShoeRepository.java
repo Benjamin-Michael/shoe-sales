@@ -1,22 +1,21 @@
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.entity.Shoe;
-import za.ac.cput.repository.IRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-public class ShoeRepository implements IRepository <Shoe, String> {
+public class ShoeRepository implements IShoeRepository {
 
-    private List<Shoe> shoeList;
+    private Set<Shoe> shoeDB = null;
 
     public ShoeRepository() {
-        shoeList = new ArrayList<>();
+        shoeDB = new HashSet<Shoe>();
     }
 
     @Override
     public Shoe create(Shoe shoe) {
-        this.shoeList.add(shoe);
+        this.shoeDB.add(shoe);
         return shoe;
     }
 
@@ -24,7 +23,7 @@ public class ShoeRepository implements IRepository <Shoe, String> {
     public Shoe read(String shoeId) {
         Shoe shoe = null;
 
-        for (Shoe s : this.shoeList) {
+        for (Shoe s : this.shoeDB) {
             if (s.getShoeId().equalsIgnoreCase(shoeId)) {
                 shoe = s;
                 break;
@@ -39,8 +38,8 @@ public class ShoeRepository implements IRepository <Shoe, String> {
         Shoe preUpdate = read(shoe.getShoeId());
 
         if (preUpdate != null) {
-            this.shoeList.remove(preUpdate);
-            this.shoeList.add(shoe);
+            this.shoeDB.remove(preUpdate);
+            this.shoeDB.add(shoe);
         }
 
         return shoe;
@@ -51,8 +50,13 @@ public class ShoeRepository implements IRepository <Shoe, String> {
         Shoe shoe = read(shoeId);
 
         if (shoe != null)
-            this.shoeList.remove(shoe);
+            this.shoeDB.remove(shoe);
           return true;
+    }
+
+    @Override
+    public Set<Shoe> getAll() {
+        return shoeDB;
     }
 }
 
