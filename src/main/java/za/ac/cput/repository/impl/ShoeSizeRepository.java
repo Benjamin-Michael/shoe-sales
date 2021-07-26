@@ -1,30 +1,71 @@
 package za.ac.cput.repository.impl;
 
+import za.ac.cput.entity.Shoe;
+import za.ac.cput.entity.ShoeSize;
+
+import java.util.HashSet;
 import java.util.Set;
 
 public class ShoeSizeRepository implements IShoeSizeRepository {
+
+    private static  ShoeSizeRepository repository = null;
+    private Set<ShoeSize> shoeSizeDB = null;
+
+    private ShoeSizeRepository() {
+        shoeSizeDB = new HashSet<ShoeSize>();
+    }
+
+    public static ShoeSizeRepository getRepository(){
+        if(repository == null)
+            repository = new ShoeSizeRepository();
+        return repository;
+    }
+
     @Override
-    public za.ac.cput.entity.ShoeSize create(za.ac.cput.entity.ShoeSize shoeSize) {
+    public ShoeSize create(ShoeSize shoeSize) {
+        boolean success = this.shoeSizeDB.add(shoeSize);
+        if(!success)
+            return null;
+
+        return shoeSize;
+    }
+
+    @Override
+    public ShoeSize read(String shoeSizeId) {
+        for (ShoeSize shoeSize : this.shoeSizeDB) {
+            if (shoeSize.getShoeSizeId().equalsIgnoreCase(shoeSizeId))
+                return shoeSize;
+        }
+
         return null;
     }
 
     @Override
-    public za.ac.cput.entity.ShoeSize read(String s) {
+    public ShoeSize update(ShoeSize shoeSize) {
+        ShoeSize preUpdate = read(shoeSize.getShoeSizeId());
+
+        if (preUpdate != null) {
+            this.shoeSizeDB.remove(preUpdate);
+            this.shoeSizeDB.add(shoeSize);
+            return shoeSize;
+        }
+
         return null;
     }
 
     @Override
-    public za.ac.cput.entity.ShoeSize update(za.ac.cput.entity.ShoeSize shoeSize) {
-        return null;
-    }
+    public boolean delete(String shoeSizeId) {
+        ShoeSize shoeSizeToDelete = read(shoeSizeId);
 
-    @Override
-    public boolean delete(String s) {
+        if (shoeSizeToDelete != null) {
+            this.shoeSizeDB.remove(shoeSizeToDelete);
+            return true;
+        }
         return false;
     }
 
     @Override
-    public Set<za.ac.cput.entity.ShoeSize> getAll() {
-        return null;
+    public Set<ShoeSize> getAll() {
+        return shoeSizeDB;
     }
 }

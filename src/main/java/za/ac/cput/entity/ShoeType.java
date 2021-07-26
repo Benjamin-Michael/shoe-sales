@@ -27,6 +27,18 @@ public class ShoeType {
                 '}';
     }
 
+    public String getShoeTypeId() {
+        return shoeTypeId;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
     public static class Builder{
 
         private String shoeTypeId, colour;

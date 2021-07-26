@@ -28,6 +28,18 @@ public class ShoeSize {
                 '}';
     }
 
+    public String getShoeSizeId() {
+        return shoeSizeId;
+    }
+
+    public boolean isAdultSize() {
+        return adultSize;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
     public static class Builder{
 
         private String shoeSizeId;
