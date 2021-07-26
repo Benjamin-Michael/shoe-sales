@@ -11,14 +11,8 @@ import za.ac.cput.util.GenericHelper;
 
 public class ShoePromotionFactory {
 
-    public static ShoePromotion newShoePromotion(String shoeId, String startDate, String endDate)
+    public static ShoePromotion newShoePromotion(String promotionId, String shoeId, String startDate, String endDate)
     {
-        //PromotionFactory proFac = new PromotionFactory();
-
-        // Generating an Unique ID
-
-        String promotionId = GenericHelper.generateId();
-
         ShoePromotion shoePro = new ShoePromotion.Builder().setShoeId(shoeId).setPromotion(promotionId).setStartDate(startDate).setEndDate(endDate).build();
 
         return shoePro;
