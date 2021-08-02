@@ -58,6 +58,7 @@ public class ShoePromotionRepository implements IShoePromotionRepository{
         {
             shoePromoDb.remove(existShoePromo);
             shoePromoDb.add(shoePromotion);
+            return shoePromotion;
         }
         return null;
     }

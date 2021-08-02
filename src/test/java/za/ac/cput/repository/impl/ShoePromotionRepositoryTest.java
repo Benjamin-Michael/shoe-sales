@@ -57,7 +57,7 @@ public class ShoePromotionRepositoryTest {
         ShoePromotion updated = new ShoePromotion.Builder().copy(shoePromotion1).setStartDate("10 July 2021").build();
 
         // Assert
-        assertNotNull(updated);
+        assertNotNull(repository.update(updated));
 
         // Tested-Object Output
         System.out.println("Previous Promotion : " + shoePromotion1 + " changed to -- >");
