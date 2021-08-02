@@ -60,6 +60,7 @@ public class PromotionRepository implements IPromotionRepository {
         {
             promoDb.remove(existPromo);
             promoDb.add(promotion);
+            return promotion;
         }
         return null;
     }
