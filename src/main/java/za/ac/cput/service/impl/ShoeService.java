@@ -1,14 +1,18 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Shoe;
 import za.ac.cput.repository.impl.ShoeRepository;
 
 import java.util.Set;
 
+@Service
 public class ShoeService implements IShoeService{
 
     private static ShoeService shoeService = null;
     private ShoeRepository shoeRepository = null;
+
+
 
     private ShoeService(){
         this.shoeRepository = ShoeRepository.getRepository();

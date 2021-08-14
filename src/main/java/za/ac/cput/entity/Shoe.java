@@ -7,6 +7,9 @@
 package za.ac.cput.entity;
 
 public class Shoe {
+
+    public Shoe(){}
+
     public String getShoeId() {
         return shoeId;
     }
