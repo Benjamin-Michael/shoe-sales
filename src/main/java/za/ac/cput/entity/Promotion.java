@@ -12,6 +12,9 @@ public class Promotion {
     private String description;
     private Double discountPercentage;
 
+    public Promotion() {
+    }
+
     private Promotion(Builder builder)
     {
         this.promotionId = builder.promotionId;

@@ -6,20 +6,19 @@
 
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ShoePromotion;
 import za.ac.cput.repository.impl.ShoePromotionRepository;
 
 import java.util.Set;
 
+@Service
 public class ShoePromotionService implements IShoePromotionService{
 
     private static ShoePromotionService service = null;
     private ShoePromotionRepository repository = null;
 
-    public ShoePromotionService()
-    {
-        this.repository = ShoePromotionRepository.getRepository();
-    }
+    public ShoePromotionService() { this.repository = ShoePromotionRepository.getRepository(); }
 
     public static ShoePromotionService getService(){
         if(service == null)
