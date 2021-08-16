@@ -7,11 +7,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SaleItemRepository implements ISaleItemRepository {
-
+    private static SaleItemRepository repository = null;
     private Set<SaleItem> SaleItemDb = null;
 
     public SaleItemRepository() {
         SaleItemDb = new HashSet<SaleItem>();
+    }
+
+    public static SaleItemRepository getRepository() {
+        if(repository == null)
+            repository = new SaleItemRepository();
+        return repository;
     }
 
     //Create

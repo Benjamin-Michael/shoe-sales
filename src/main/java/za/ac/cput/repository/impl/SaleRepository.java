@@ -8,9 +8,16 @@ import java.util.Set;
 
 public class SaleRepository implements ISaleRepository{
     private Set<Sale> SaleDb = null;
+    private static SaleRepository repository = null;
 
     public SaleRepository() {
         SaleDb = new HashSet<Sale>();
+    }
+
+    public static SaleRepository getRepository() {
+        if(repository == null)
+            repository = new SaleRepository();
+        return repository;
     }
 
     //Create
