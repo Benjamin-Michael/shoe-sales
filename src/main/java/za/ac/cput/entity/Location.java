@@ -12,6 +12,9 @@ public class Location {
         this.address = builder.address;
     }
 
+    //public Location() {
+    //}
+
     @Override
     public String toString() {
         return "Location{" +
@@ -20,7 +23,7 @@ public class Location {
                 '}';
     }
 
-    private static class Builder{
+    public static class Builder{
         private String storeLocationId, address;
         public Builder setStoreLocationId(String storeLocationId) {
             this.storeLocationId = storeLocationId;
