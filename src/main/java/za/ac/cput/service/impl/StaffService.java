@@ -1,17 +1,24 @@
 package za.ac.cput.service.impl;
-import za.ac.cput.entity.Staff;
 
-import za.ac.cput.repository.impl.StaffRepositoryImpl;
+import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Shoe;
+import za.ac.cput.entity.Staff;
+import za.ac.cput.repository.impl.ShoeRepository;
+import za.ac.cput.repository.impl.StaffRepositoryImp;
+
 import java.util.Set;
 
+
+@Service
 public class StaffService implements IStaffService{
 
-    private static StaffService staffService = null ;
-    private StaffRepositoryImpl staffRepositoryImpl = null;
+    private static StaffService staffService = null;
+    private StaffRepositoryImp staffRepositoryImpl = null;
+
+
 
     private StaffService(){
-      // this.staffRepositoryImpl = StaffRepositoryImpl.getRepository();
-
+        this.staffRepositoryImpl = StaffRepositoryImp.getRepository();
     }
 
     public static StaffService getService(){

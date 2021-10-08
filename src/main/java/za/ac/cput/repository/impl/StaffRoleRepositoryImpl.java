@@ -1,55 +1,64 @@
 package za.ac.cput.repository.impl;
-/*StaffRoleRepositoryImpl.java
-  Repository implementation for staff class
-  Author: Phindiwe Bambata (217180833)
-  Date: 24/07/2021
- */
 
-import za.ac.cput.entity.Staff;
 import za.ac.cput.entity.StaffRole;
 
 import java.util.HashSet;
 import java.util.Set;
-public class StaffRoleRepositoryImpl implements StaffRoleRepository{
-    private static StaffRoleRepository repository = null;
-    private Set<StaffRole> staffRoleDB;
-    private StaffRoleRepositoryImpl() { this.staffRoleDB = new HashSet<>();}
 
-    public static StaffRoleRepository getRepository() {
-        if(repository == null) repository = new StaffRoleRepositoryImpl();
+public class StaffRoleRepositoryImpl implements StaffRoleRepository {
+
+    private static StaffRoleRepositoryImpl repository = null;
+    private Set<StaffRole> staffRoleDB = null;
+
+    private StaffRoleRepositoryImpl() {
+        staffRoleDB = new HashSet<StaffRole>();
+    }
+
+    public static StaffRoleRepositoryImpl getRepository(){
+        if(repository == null)
+            repository = new StaffRoleRepositoryImpl();
         return repository;
     }
 
     @Override
     public StaffRole create(StaffRole staffRole) {
-        this.staffRoleDB.add(staffRole);
+        boolean success = this.staffRoleDB.add(staffRole);
+        if(!success)
+            return null;
+
         return staffRole;
     }
 
     @Override
-    public StaffRole read(final String roleId) {
+    public StaffRole read(String  roleId) {
+
         for (StaffRole staffRole : this.staffRoleDB) {
-            if(staffRole.getRoleId().equalsIgnoreCase(roleId)) return staffRole;
+            if (staffRole.getRoleId().equalsIgnoreCase(roleId))
+                return staffRole;
         }
+
         return null;
     }
 
     @Override
     public StaffRole update(StaffRole staffRole) {
-        StaffRole role = read(staffRole.getRoleId());
-        if(role != null) {
-            staffRoleDB.remove(role);
-            staffRoleDB.add(staffRole);
+        StaffRole preUpdate = read(staffRole.getRoleId());
+
+        if (preUpdate != null) {
+            this.staffRoleDB.remove(preUpdate);
+            this.staffRoleDB.add(staffRole);
             return staffRole;
         }
+
         return null;
     }
 
     @Override
     public boolean delete(String roleId) {
-        StaffRole staffRole = read(roleId);
-        if(staffRole != null) {
-            this.staffRoleDB.remove(staffRole);
+        StaffRole staffRoleToDelete = read(roleId);
+
+        if (staffRoleToDelete != null) {
+            this.staffRoleDB.remove(staffRoleToDelete);
             return true;
         }
         return false;
@@ -57,7 +66,7 @@ public class StaffRoleRepositoryImpl implements StaffRoleRepository{
 
     @Override
     public Set<StaffRole> getAll() {
-        return this.staffRoleDB;
+        return staffRoleDB;
     }
 }
 

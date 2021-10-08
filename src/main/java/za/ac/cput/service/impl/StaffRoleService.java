@@ -1,19 +1,23 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Staff;
 import za.ac.cput.entity.StaffRole;
+import za.ac.cput.repository.impl.StaffRepositoryImp;
 import za.ac.cput.repository.impl.StaffRoleRepositoryImpl;
 
 import java.util.Set;
 
-public class StaffRoleService implements IStaffRoleService {
+@Service
+public class StaffRoleService implements IStaffRoleService{
 
-    private static StaffRoleService staffRoleService = null ;
+    private static StaffRoleService staffRoleService = null;
     private StaffRoleRepositoryImpl staffRoleRepositoryImpl = null;
 
-    private StaffRoleService(){
-        // this.staffRoleRepositoryImpl = StaffRoleRepositoryImpl.getRepository();
 
+
+    private StaffRoleService(){
+        this.staffRoleRepositoryImpl = StaffRoleRepositoryImpl.getRepository();
     }
 
     public static StaffRoleService getService(){
@@ -47,3 +51,4 @@ public class StaffRoleService implements IStaffRoleService {
         return this.staffRoleRepositoryImpl.getAll();
     }
 }
+
