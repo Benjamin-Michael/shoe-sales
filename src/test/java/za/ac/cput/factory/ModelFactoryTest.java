@@ -1,32 +1,46 @@
-/*ModelFactoryTest.java
-  Factory for ModelTest class
-  Author: Lonwabo Alvin (217213685)
-  Date: 09/06/2021
- */
 package za.ac.cput.factory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import za.ac.cput.entity.Model;
 
-import static org.junit.api.Assertions.*;
-public class ModelFactoryTest{
+import static org.junit.jupiter.api.Assertions.*;
 
-    Model model1 = ModelFactory.createModel("96","Air Jordans","Micheal Jordans 98 NBA design");
-    Model model2 = ModelFactory.createModel("98","Air max","Freshman's top achivement");
+class ModelFactoryTest {
+     private Model model1, model2;
 
+     @BeforeEach
+     void setUp(){
+         model1 = ModelFactory.createModel("98","Air max","Freshman's top achivement");
+         model2 = null;
+     }
     @Test
     void createModel(){
-        Model model1 = ModelFactory.createModel("96","Air Jordans","Micheal Jordans 98 NBA design");
+         model2 = ModelFactory.createModel("96","Air Jordans","Micheal Jordans 98 NBA design");
+        assertNotNull(model2);
+        System.out.println(model2);
+    }
+    @Disabled
+    @Test
+    void testCreation(){
+        model1 = ModelFactory.createModel("98","Air max","Freshman's top achivement");
         assertNotNull(model1);
         System.out.println(model1);
     }
     @Timeout(1000)
     @Test
-    void testTimeout(){
-        assertEquals(model1);
+    void testObject(){
+        model2 = model1;
+        System.out.println(model2);
+
+        assertAll(
+                () -> assertEquals(model1, model2),
+                () -> assertSame(model1, model2)
+        );
     }
 
-    @Disabled("The test will cause an error")
-    void testDisable(){
-        assertEquals(model1.toString());
-        System.out.println(The test will cause an erron);
-    }
+
+
 }
