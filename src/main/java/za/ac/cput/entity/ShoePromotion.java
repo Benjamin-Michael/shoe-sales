@@ -29,6 +29,10 @@ public class ShoePromotion {
         return endDate;
     }
 
+    public ShoePromotion() {
+
+    }
+
     private ShoePromotion(Builder builder)
     {
         this.shoeId = builder.shoeId;

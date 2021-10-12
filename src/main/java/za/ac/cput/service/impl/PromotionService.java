@@ -6,11 +6,13 @@
 
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Promotion;
 import za.ac.cput.repository.impl.PromotionRepository;
 
 import java.util.Set;
 
+@Service
 public class PromotionService implements IPromotionService{
 
     private static PromotionService service = null;

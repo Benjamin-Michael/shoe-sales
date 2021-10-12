@@ -31,6 +31,10 @@ public class SaleItem {
         return shoeId;
     }
 
+    public String getSaleId() {
+        return saleId;
+    }
+
     public static class Builder{
         private String saleItemId, shoeId, saleId;
 

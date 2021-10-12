@@ -29,6 +29,18 @@ public class Sale {
         return saleId;
     }
 
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public String getSaleTotal() {
+        return saleTotal;
+    }
+
+    public String getSaleDate() {
+        return saleDate;
+    }
+
     public static class Builder{
         private String saleId, staffId, saleTotal, saleDate;
 

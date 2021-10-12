@@ -22,6 +22,18 @@ public class Return {
                 "}";
     }
 
+    public String getReturnId() {
+        return this.returnId;
+    }
+
+    public String getSaleId() {
+        return saleId;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
     public static class Builder{
         private String returnId, saleId, returnDate;
 
