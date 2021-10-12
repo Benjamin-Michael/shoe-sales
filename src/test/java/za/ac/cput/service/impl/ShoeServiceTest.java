@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class ShoeServiceTest {
 
-    private static ShoeService shoeService = ShoeService.getService();
+    private static ShoeService shoeService;     //= ShoeService.getService();
     private static Shoe shoe = ShoeFactory.createShoe("Nike", GenericHelper.generateId(), GenericHelper.generateId(), GenericHelper.generateId());
 
     @Test
@@ -50,4 +50,6 @@ class ShoeServiceTest {
     void d_getAll() {
         System.out.println(shoeService.getAll() + "\n");
     }
+
+
 }

@@ -6,7 +6,16 @@
 
 package za.ac.cput.entity;
 
-public class Shoe {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Shoe implements Serializable {
+
+    @Id
+    private String shoeId;
+    private String brand, modelId, shoeTypeId, shoeSizeId;
 
     public Shoe(){}
 
@@ -29,8 +38,6 @@ public class Shoe {
     public String getShoeSizeId() {
         return shoeSizeId;
     }
-
-    private String shoeId, brand, modelId, shoeTypeId, shoeSizeId;
 
     private Shoe(Builder builder){
         this.shoeId = builder.shoeId;
