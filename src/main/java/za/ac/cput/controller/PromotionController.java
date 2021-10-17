@@ -15,7 +15,7 @@ public class PromotionController {
     @Autowired
     private PromotionService promotionService;
 
-    @GetMapping("")
+    @GetMapping("/getall")
     public Set<Promotion> getAllPromotions(){
         return promotionService.getAll();
     }
@@ -25,7 +25,7 @@ public class PromotionController {
         return promotionService.read(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/create")
     public Promotion createPromotion(@RequestBody Promotion promotion){
         Promotion newPromotion = PromotionFactory.newPromotion(promotion.getPromotionId(), promotion.getDescription(), promotion.getDiscountPercentage());
         return promotionService.create(newPromotion);

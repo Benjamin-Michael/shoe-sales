@@ -7,7 +7,9 @@
 package za.ac.cput.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
