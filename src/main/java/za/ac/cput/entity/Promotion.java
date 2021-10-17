@@ -6,8 +6,14 @@
 
 package za.ac.cput.entity;
 
-public class Promotion {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
+@Entity
+public class Promotion implements Serializable {
+
+    @Id
     private String promotionId;
     private String description;
     private Double discountPercentage;

@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class PromotionService implements IPromotionService{
 
-    private static PromotionService service = null;
+    private static PromotionService promotionService = null;
 
     @Autowired
     private PromotionRepository promotionRepository;
