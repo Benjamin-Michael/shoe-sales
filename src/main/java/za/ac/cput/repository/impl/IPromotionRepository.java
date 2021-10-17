@@ -11,6 +11,7 @@ import za.ac.cput.repository.IRepository;
 
 import java.util.Set;
 
+@Deprecated
 public interface IPromotionRepository extends IRepository<Promotion, String>
 {
     public Set<Promotion> getAll();

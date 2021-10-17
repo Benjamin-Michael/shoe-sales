@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class PromotionServiceTest {
 
-    private static PromotionService service =  PromotionService.getService();
+    private static PromotionService service ; //=  PromotionService.getService();
     private static Promotion promotion = PromotionFactory.newPromotion("PM001", "50% OF VANS NOW!", 50.00);
 
     @Test

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class ShoePromotionServiceTest {
 
-    private static ShoePromotionService service = ShoePromotionService.getService();
+    private static ShoePromotionService service ; //= ShoePromotionService.getService();
     private static ShoePromotion shoePromotion = ShoePromotionFactory.newShoePromotion("PM001", "VNS234", "01 JULY 2021", "31 JULY 2021");
 
     @Test
