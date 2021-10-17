@@ -6,11 +6,10 @@ package za.ac.cput.entity;
  */
 public class Staff {
 
-    private String staffId,roleId, firstName, lastName;
+    private String staffId, firstName, lastName;
 
     private Staff(Builder builder){
         this.staffId = builder.staffId;
-        this.roleId = builder.roleId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
 
@@ -21,7 +20,6 @@ public class Staff {
     public String toString() {
         return "Staff{" +
                 "staffId='" + staffId + '\'' +
-                "roleId='" + roleId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName +
                 '}';
@@ -31,9 +29,6 @@ public class Staff {
         return staffId;
     }
 
-    public String getRoleId() {
-        return roleId;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -46,15 +41,13 @@ public class Staff {
     public static class Builder{
 
 
-        private String staffId, roleId, firstName, lastName;
+        private String staffId,  firstName, lastName;
         public Builder setStaffId(String staffId) {
             this.staffId = staffId;
             return this;
         }
-        public Builder setRoleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
+
+
 
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
@@ -72,7 +65,6 @@ public class Staff {
 
         public Builder copy(Staff staff){
             this.staffId = staff.staffId;
-            this.roleId = staff.roleId;
             this.firstName = staff.firstName;
             this.lastName = staff.lastName;
 

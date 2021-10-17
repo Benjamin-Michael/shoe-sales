@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
     class StaffServiceTest {
 
         private static StaffService staffService = StaffService.getService();
-        private static Staff staff = StaffFactory.createStaff(GenericHelper.generateId(),"Spider","Man");
+        private static Staff staff = StaffFactory.createStaff("Spider","Man");
 
         @Test
         void a_create() {

@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StaffRepositoryImpTest {
 
     private static StaffRepositoryImp staffRepositoryImp = StaffRepositoryImp.getRepository();
-    private static Staff staff = StaffFactory.createStaff("2012","Irom", "Man");
+    private static Staff staff = StaffFactory.createStaff("Irom", "Man");
 
     @Test
     void a_create() {

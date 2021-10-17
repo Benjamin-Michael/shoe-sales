@@ -8,13 +8,12 @@ import za.ac.cput.entity.Staff;
 import za.ac.cput.util.GenericHelper;
 
 public class StaffFactory {
-    public static Staff createStaff(String roleId, String firstName, String lastName) {
+    public static Staff createStaff(String firstName, String lastName) {
 
         String staffId = GenericHelper.generateId();
 
         Staff staff = new Staff.Builder()
                 .setStaffId(staffId)
-                .setRoleId(roleId)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .build();

@@ -15,14 +15,14 @@ class StaffFactoryTest {
 
     @BeforeEach
     void setUp() {
-        staff1 = StaffFactory.createStaff("321", "Phindiwe", "Bambata");
-        staff3 = StaffFactory.createStaff("233", "Toya", "Sangoni");
+        staff1 = StaffFactory.createStaff("Phindiwe", "Bambata");
+        staff3 = StaffFactory.createStaff( "Toya", "Sangoni");
 
     }
 
     @Test
     public void createStaff() {
-        staff2 = StaffFactory.createStaff("321","Zinzi","Boyce");
+        staff2 = StaffFactory.createStaff("Zinzi","Boyce");
         assertNotNull(staff2);
         System.out.println(staff2);
     }
