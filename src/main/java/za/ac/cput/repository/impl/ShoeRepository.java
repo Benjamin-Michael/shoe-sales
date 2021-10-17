@@ -5,6 +5,7 @@ import za.ac.cput.entity.Shoe;
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class ShoeRepository implements IShoeRepository {
 
     private static ShoeRepository repository = null;
