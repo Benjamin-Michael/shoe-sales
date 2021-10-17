@@ -6,51 +6,51 @@
 
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Promotion;
-import za.ac.cput.repository.impl.PromotionRepository;
+import za.ac.cput.repository.PromotionRepository;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class PromotionService implements IPromotionService{
 
     private static PromotionService service = null;
-    private PromotionRepository repository = null;
 
-    private PromotionService()
-    {
-        this.repository = PromotionRepository.getRepository();
-    }
-
-    public static PromotionService getService(){
-        if(service == null)
-            service = new PromotionService();
-        return service;
-    }
+    @Autowired
+    private PromotionRepository promotionRepository;
 
     @Override
     public Promotion create(Promotion promotion) {
-        return this.repository.create(promotion);
+        return this.promotionRepository.save(promotion);
     }
 
     @Override
     public Promotion read(String promotionId) {
-        return this.repository.read(promotionId);
+        return this.promotionRepository.findById(promotionId).orElse(null);
     }
 
     @Override
     public Promotion update(Promotion promotion) {
-        return this.repository.update(promotion);
+        if(this.promotionRepository.existsById(promotion.getPromotionId()))
+            return this.promotionRepository.save(promotion);
+        return null;
     }
 
     @Override
     public boolean delete(String promotionId) {
-        return this.repository.delete(promotionId);
+        this.promotionRepository.deleteById(promotionId);
+
+        if(this.promotionRepository.existsById(promotionId))
+            return false;
+        else
+            return true;
     }
 
     @Override
     public Set<Promotion> getAll() {
-        return this.repository.getAll();
+        return this.promotionRepository.findAll().stream().collect(Collectors.toSet());
     }
 }

@@ -11,6 +11,7 @@ import za.ac.cput.entity.Promotion;
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class PromotionRepository implements IPromotionRepository {
 
     private static PromotionRepository repository = null;

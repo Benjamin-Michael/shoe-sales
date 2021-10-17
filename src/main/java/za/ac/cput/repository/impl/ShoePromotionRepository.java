@@ -11,6 +11,7 @@ import za.ac.cput.entity.ShoePromotion;
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class ShoePromotionRepository implements IShoePromotionRepository{
 
     private static ShoePromotionRepository repository = null;
