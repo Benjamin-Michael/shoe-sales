@@ -16,12 +16,12 @@ public class ShoePromotionController {
     @Autowired
     private ShoePromotionService shoePromotionService;
 
-    @GetMapping("")
+    @GetMapping("/getall")
     public Set<ShoePromotion> getAllShoePromotions(){
         return shoePromotionService.getAll();
     }
 
-    @PostMapping("")
+    @PostMapping("/create")
     public ShoePromotion createShoePromotion(@RequestBody ShoePromotion shoePromotion){
         ShoePromotion newShoePromotion = ShoePromotionFactory.newShoePromotion(
                 shoePromotion.getPromotionId(),

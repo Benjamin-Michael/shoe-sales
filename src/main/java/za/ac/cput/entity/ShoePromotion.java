@@ -6,8 +6,16 @@
 
 package za.ac.cput.entity;
 
-public class ShoePromotion {
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
+@Entity
+public class ShoePromotion implements Serializable {
+
+    @Id
     private String shoeId;
     private String promotionId;
     private String startDate;
