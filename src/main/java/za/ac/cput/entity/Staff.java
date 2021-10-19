@@ -1,12 +1,20 @@
 package za.ac.cput.entity;
+
 /*Staff.java
   Entity for staff class
   Author: Phindiwe Bambata (217180833)
   Date: 08/06/2021
  */
-public class Staff {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
+@Entity
+public class Staff implements Serializable {
+    @Id
     private String staffId, firstName, lastName;
+
+    public Staff(){}
 
     private Staff(Builder builder){
         this.staffId = builder.staffId;
@@ -14,7 +22,6 @@ public class Staff {
         this.lastName = builder.lastName;
 
     }
-
 
     @Override
     public String toString() {
