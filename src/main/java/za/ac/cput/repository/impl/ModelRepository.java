@@ -1,60 +1,60 @@
 package za.ac.cput.repository.impl;
-
+//AUTHOR: Lonwabo Alvin 217213685
 import za.ac.cput.entity.Model;
 import java.util.HashSet;
 import java.util.Set;
 
 
 public class ModelRepository implements IModelRepository {
-    private static ModelRepository repository;
-    private Set<Model> modelDB;
+    private Set<Model> ModelDb;
+    private static ModelRepository repository = null;
 
-    private ModelRepository() { modelDB = new HashSet<Model>();}
 
-    public static IModelRepository getRepository() {
+    public ModelRepository()
+    {
+        ModelDb = new HashSet<Model>();
+    }
+
+    public static ModelRepository getRepository(){
         if(repository == null)
             repository = new ModelRepository();
         return repository;
     }
 
-    @Override
-    public Model create(Model model) {
-        this.modelDB.add(model);
-
+    public Model create(Model model){
+        this.ModelDb.add(model);
         return model;
     }
-
     @Override
-    public Model read(final String modeId) {
-        for (Model model : this.modelDB) {
-            if(model.getModelId().equalsIgnoreCase(modeId)) return model;
-        }
-        return null;
-    }
+    public Model read(String modelId){
+        Model model = null;
 
+        for(Model m : this.ModelDb){
+            if(m.getModelId().equalsIgnoreCase(modelId)){
+                model = m;
+                break;
+            }
+        }
+        return model;
+    }
     @Override
-    public Model update(Model model) {
-        Model modelUpdate = read(model.getModelId());
-        if(modelUpdate != null) {
-            modelDB.remove(model);
-            modelDB.add(model);
-            return model;
+    public Model update(Model model){
+        Model m = read(model.getModelId());
+        if(m != null){
+            this.ModelDb.remove(m);
+            this.ModelDb.add(model);
         }
-        return null;
+        return model;
     }
-
     @Override
-    public boolean delete(String modelId) {
-        Model modelDeleted = read(modelId);
-        if(modelId!= null) {
-            this.modelDB.remove(modelDeleted);
-            return true;
-        }
-        return false;
+    public boolean delete(String modelId){
+        Model model = read(modelId);
+        if(model != null)
+            this.ModelDb.remove(model);
+        return true;
     }
-
     @Override
     public Set<Model> getAll() {
-        return this.modelDB;
+        return this.ModelDb;
     }
 }

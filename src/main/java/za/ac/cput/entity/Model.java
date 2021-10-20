@@ -20,6 +20,14 @@ public class Model {
                 '}';
     }
 
+    public String getModelId() {
+        return modelId;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
     public static class Builder{
         private String modelId, modelName, modelDescription;
 

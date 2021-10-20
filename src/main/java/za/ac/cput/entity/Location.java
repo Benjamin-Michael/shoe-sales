@@ -12,8 +12,6 @@ public class Location {
         this.address = builder.address;
     }
 
-    //public Location() {
-    //}
 
     @Override
     public String toString() {
@@ -45,6 +43,13 @@ public class Location {
             this.address = location.address;
             return this;
         }
+    }
+    public  String getStoreLocationId() {
+        return storeLocationId;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
 }
