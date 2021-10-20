@@ -23,6 +23,14 @@ public class ModelLocation {
                 '}';
     }
 
+    public String getLocationId() {
+        return locationId;
+    }
+
+    public String getModelId() {
+        return modelId;
+    }
+
     public static class Builder {
         private String modelId, locationId, quantity;
 

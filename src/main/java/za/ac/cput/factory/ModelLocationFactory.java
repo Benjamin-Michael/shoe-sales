@@ -9,7 +9,7 @@ import za.ac.cput.entity.ModelLocation;
 import za.ac.cput.util.GenericHelper;
 
 public class ModelLocationFactory {
-    public static ModelLocation createModelLocation(String ModelId, String quantity) {
+    public static ModelLocation createModelLocation(String modelId, String ModelId, String quantity) {
         String locationId = GenericHelper.generateId();
         ModelLocation modelLocation = new ModelLocation.Builder().setLocationId(locationId)
                 .setModelId(ModelId)
@@ -19,3 +19,4 @@ public class ModelLocationFactory {
         return modelLocation;
     }
 }
+
