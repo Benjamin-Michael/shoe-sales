@@ -1,32 +1,50 @@
-/*ModelFactoryTest.java
-  Factory for ModelTest class
-  Author: Lonwabo Alvin (217213685)
-  Date: 09/06/2021
- */
 package za.ac.cput.factory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import za.ac.cput.entity.ModelLocation;
 
-import static org.junit.api.Assertions.*;
-public class ModelLocationFactoryTest{
+import java.util.concurrent.TimeUnit;
 
-    ModelLocation model1 = ModelLocationFactory.createModelLocation("96.8","Nike","300");
-    ModelLocation model2 = ModelLocationFactory.createModelLocation("98.1","Nike","200");
+import static org.junit.jupiter.api.Assertions.*;
+
+class ModelLocationFactoryTest {
+    private ModelLocation MLocation1, MLocation2,MLocation3;
+
+    @BeforeEach
+    void setUp() {
+        MLocation1 = ModelLocationFactory.createModelLocation("96.8", "Nike", "300");
+        MLocation3 = ModelLocationFactory.createModelLocation("90.1", "Puma", "160");
+    }
 
     @Test
-    void createModelLocation(){
-        Model model1 = ModelLocationFactory.createModelLocation("96.8","Nike","300");
-        assertNotNull(model1);
-        System.out.println(model1);
-    }
-    @Timeout(1000)
-    @Test
-    void testTimeout(){
-        assertEquals(model1);
+    void createModelLocation() {
+        MLocation2 = ModelLocationFactory.createModelLocation("96.8", "Nike", "300");
+        assertNotNull(MLocation2);
+        System.out.println(MLocation2);
     }
 
-    @Disabled("The test will not execute")
-    void testDisable(){
-        assertEquals(model1.toString());
-        System.out.println(The test will cause an erron);
+    @Test
+    void testIdentity() {
+        assertNotSame(MLocation1, MLocation3);
     }
+    @Test
+    void testEquality() {
+        assertNotEquals(MLocation1, MLocation2);
+
+    }
+    @Test
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
+    void timeout() {
+        assertNotEquals(MLocation1, MLocation2);
+        assertNotSame(MLocation1, MLocation2);
+    }
+    @Disabled
+    @Test
+    void disableTest(){
+        assertEquals(MLocation1, MLocation2);
+    }
+
 }

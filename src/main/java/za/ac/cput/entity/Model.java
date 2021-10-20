@@ -20,13 +20,21 @@ public class Model {
                 '}';
     }
 
+    public String getModelId() {
+        return modelId;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
     public static class Builder{
         private String modelId, modelName, modelDescription;
 
         public Builder setModelId(String modelId) {
             this.modelId = modelId;
 
-           return this;
+            return this;
         }
 
         public Builder setModelName(String modelName) {
@@ -53,3 +61,7 @@ public class Model {
 
     }
 }
+
+
+
+

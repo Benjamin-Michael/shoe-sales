@@ -4,18 +4,19 @@
   Date: 09/06/2021
  */
 package za.ac.cput.factory;
-
+//AUTHOR: Lonwabo Alvin 217213685
 import za.ac.cput.entity.Location;
 import za.ac.cput.util.GenericHelper;
 
 public class LocationFactory {
     public static Location createLocation(String address) {
         String storeLocationId = GenericHelper.generateId();
-         Location location = new Location.Builder()
-                 .setStoreLocationId(storeLocationId)
-                 .setAddress(address).build();
+        Location location = new Location.Builder()
+                .setStoreLocationId(storeLocationId)
+                .setAddress(address).build();
 
 
-         return location;
+        return location;
     }
 }
+
