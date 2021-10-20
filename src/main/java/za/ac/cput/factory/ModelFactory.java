@@ -13,13 +13,14 @@ import za.ac.cput.util.GenericHelper;
 public class ModelFactory {
 
 
-    public static Model createModel( String modelName, String modelDescription){
+    public static Model createModel(String name, String modelName, String modelDescription){
         String modelId = GenericHelper.generateId();
         Model model = new Model.Builder().setModelId(modelId)
-                      .setModelName(modelName)
-                      .setModelDescription(modelDescription)
-                      .build();
+                .setModelName(modelName)
+                .setModelDescription(modelDescription)
+                .build();
 
         return model;
     }
 }
+
