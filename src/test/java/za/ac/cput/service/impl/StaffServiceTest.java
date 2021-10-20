@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
     @TestMethodOrder(MethodOrderer.MethodName.class)
     class StaffServiceTest {
 
-        private static StaffService staffService = StaffService.getService();
+        private static StaffService staffService;
         private static Staff staff = StaffFactory.createStaff("Spider","Man");
 
         @Test
