@@ -6,7 +6,5 @@ import za.ac.cput.service.IService;
 import java.util.Set;
 
 public interface ILocationService extends IService<Location, String>{
-
-        Set<Location> getAll();
-
+        public Set<Location> getAll();
 }
