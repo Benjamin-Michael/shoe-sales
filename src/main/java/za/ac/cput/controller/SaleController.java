@@ -15,7 +15,7 @@ public class SaleController {
     @Autowired
     private SaleService saleService;
 
-    @GetMapping("")
+    @GetMapping("/getall")
     public Set<Sale> getAllSales(){
         return saleService.getAll();
     }
@@ -25,7 +25,7 @@ public class SaleController {
         return saleService.read(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/create")
     public Sale createSale(@RequestBody Sale sale)
     {
         Sale newSale = SaleFactory.createSale(sale.getStaffId(), sale.getSaleTotal(), sale.getSaleDate());
