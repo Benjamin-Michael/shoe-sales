@@ -4,9 +4,22 @@
  */
 package za.ac.cput.entity;
 
-public class Sale {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-    private String saleId, staffId, saleTotal, saleDate;
+@Entity
+public class Sale implements Serializable {
+
+    @Id
+    private String saleId;
+    private String staffId;
+    private String saleTotal;
+    private String saleDate;
+
+    public Sale(){
+
+    }
 
     private Sale(Builder builder){
         this.saleId = builder.saleId;
